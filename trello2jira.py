@@ -27,7 +27,9 @@ body = buffer.getvalue()
 source = json.loads(body)
 print (json.dumps(source))
 mapping = {
-    'card': (S('name')),
+    'summary': (S('name')),
+    'description' : (S('desc')),
+    'updated': (S('dateLastActivity')),
     'created': (S('id')) >> (F(dateFix))
     }
 
