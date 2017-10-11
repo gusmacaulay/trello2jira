@@ -1,0 +1,4 @@
+JSONBender==0.9.1
+argparse==1.2.1
+pycurl==7.43.0
+wsgiref==0.1.2
