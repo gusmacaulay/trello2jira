@@ -11,6 +11,7 @@ def dateFix(hashID):
 
 key = sys.argv[1]
 board = sys.argv[2]
+project = sys.argv[3]
 
 print "key: " + key
 print "board: " + board
@@ -25,7 +26,6 @@ c.close()
 
 body = buffer.getvalue()
 source = json.loads(body)
-print (json.dumps(source))
 mapping = {
     'summary': (S('name')),
     'description' : (S('desc')),
@@ -33,6 +33,11 @@ mapping = {
     'created': (S('id')) >> (F(dateFix))
     }
 
+issues = []
 for card in source:
     result = bend(mapping, card)
-    print(json.dumps(result))
+    issues.append(result)
+
+
+print(json.dumps({"projects" : [{"name" : project, "issues":issues}]}))
+
