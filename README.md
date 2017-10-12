@@ -7,6 +7,7 @@ Install
 =======
 
 virtualenv env
+
 . env/bin/activate
 
 pip install -r requirements.txt
@@ -14,4 +15,4 @@ pip install -r requirements.txt
 Usage
 =====
 
-python trello2jira.py YOUR_TRELLO_KEY BOARD_ID JIRA_PROJECT_NAME
+python trello2jira.py YOUR_TRELLO_KEY  BOARD_ID  JIRA_PROJECT_NAME > jira.json
