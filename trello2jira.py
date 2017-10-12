@@ -14,9 +14,6 @@ token = sys.argv[2]
 board = sys.argv[3]
 project = sys.argv[4]
 
-#print "key: " + key
-#print "board: " + board
-
 buffer = StringIO()
 c = pycurl.Curl()
 c.setopt(c.VERBOSE, True)
@@ -26,14 +23,13 @@ c.perform()
 c.close()
 
 body = buffer.getvalue()
-print body
 source = json.loads(body)
 mapping = {
     'summary': (S('name')),
     'description' : (S('desc')),
     'updated': (S('dateLastActivity')),
     'created': (S('id')) >> (F(dateFix)),
-    'issueType': 'Bug'
+    'issueType': 'Task'
     }
 
 issues = []
