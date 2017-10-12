@@ -10,8 +10,9 @@ def dateFix(hashID):
     return datetime.fromtimestamp(int(hashID[0:8], 16)).strftime("%Y-%m-%dT%H:%M:%S")
 
 key = sys.argv[1]
-board = sys.argv[2]
-project = sys.argv[3]
+token = sys.argv[2]
+board = sys.argv[3]
+project = sys.argv[4]
 
 #print "key: " + key
 #print "board: " + board
@@ -19,12 +20,13 @@ project = sys.argv[3]
 buffer = StringIO()
 c = pycurl.Curl()
 c.setopt(c.VERBOSE, True)
-c.setopt(c.URL, 'https://api.trello.com/1/boards/' + board + '/cards?key=' + key)
+c.setopt(c.URL, 'https://api.trello.com/1/boards/' + board + '/cards?key=' + key + '&token=' + token)
 c.setopt(c.WRITEDATA, buffer)
 c.perform()
 c.close()
 
 body = buffer.getvalue()
+print body
 source = json.loads(body)
 mapping = {
     'summary': (S('name')),
