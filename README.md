@@ -15,4 +15,6 @@ pip install -r requirements.txt
 Usage
 =====
 
-python trello2jira.py YOUR_TRELLO_KEY  BOARD_ID  JIRA_PROJECT_NAME > jira.json
+You will need a key and a token.  The trello auth system is confusing and badly documented - http://www.trello.org/help.html 
+
+python trello2jira.py YOUR_TRELLO_KEY  YOUR_TRELLO_TOKEN BOARD_ID  JIRA_PROJECT_NAME > jira.json
